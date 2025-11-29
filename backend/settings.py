@@ -29,9 +29,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v$$4vo1#ncvc#z2$4d2*^te%)164bwg$!-2*u)4q#_*v%^7(z_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["todo-api-production-ce.up.railway.app","test-api-9hk8.onrender.com","localhost","127.0.0.1"]
+ALLOWED_HOSTS = [
+    "todo-api-production-ce.up.railway.app",
+    "*.up.railway.app",
+    "test-api-9hk8.onrender.com",
+    "localhost",
+    "127.0.0.1"
+]
 
 
 # Application definition
@@ -105,11 +111,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres.jobwjhjnpsxtxbmjxdou',
-        'PASSWORD': 'S/m@Tt!1M£dDb',
-        'HOST': 'aws-1-ap-southeast-2.pooler.supabase.com',
-        'PORT': '5432',
+        'NAME': os.getenv("DB_NAME", "postgres"),
+        'USER': os.getenv("DB_USER"),
+        'PASSWORD': os.getenv("DB_PASSWORD"),
+        'HOST': os.getenv("DB_HOST"),
+        'PORT': os.getenv("DB_PORT", "5432"),
         'OPTIONS' : {
             "sslmode" : 'require'
         }
