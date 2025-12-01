@@ -76,6 +76,7 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "tauri://localhost",
 ]
 
 # AUTH_USER_MODEL = "api.User"
