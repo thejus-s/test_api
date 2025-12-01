@@ -74,11 +74,13 @@ REST_FRAMEWORK = {
     )
 }
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "tauri://localhost",
-    "https://todo-api-production-ce.up.railway.app",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:5173",
+#     "tauri://localhost",
+#     "https://todo-api-production-ce.up.railway.app",
+# ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 # AUTH_USER_MODEL = "api.User"
 
